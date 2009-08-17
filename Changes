@@ -1,2 +1,6 @@
+0.02  Mon, 17 Aug 2009 11:08:33 +0200
+  * Rename the attribute option from 'lazy_require' to 'lazy_required'.
+  * Depend on Test::More 0.88 for done_testing.
+
 0.01  Thu, 13 Aug 2009 02:17:02 +0200
   * Initial release.
