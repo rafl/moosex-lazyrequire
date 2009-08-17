@@ -1,22 +1,33 @@
 package MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire;
 
 use Moose::Role;
+use Carp qw/cluck/;
 use MooseX::Types::Moose qw/Bool/;
 use namespace::autoclean;
 
-has lazy_require => (
+has lazy_required => (
     is       => 'ro',
     isa      => Bool,
     required => 1,
     default  => 0,
 );
 
+has lazy_require => (
+    is       => 'bare',
+);
+
 after _process_options => sub {
     my ($class, $name, $options) = @_;
-    return unless $options->{lazy_require};
+
+    if (exists $options->{lazy_require}) {
+        cluck "deprecated option 'lazy_require' used. use 'lazy_required' instead.";
+        $options->{lazy_required} = delete $options->{lazy_require};
+    }
+
+    return unless $options->{lazy_required};
 
     Moose->throw_error(
-        "You may not use both a builder or a default and lazy_require for one attribute ($name)",
+        "You may not use both a builder or a default and lazy_required for one attribute ($name)",
         data => $options,
     ) if $options->{builder};
 

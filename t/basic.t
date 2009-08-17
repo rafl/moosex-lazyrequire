@@ -9,8 +9,8 @@ use Test::Exception;
     use MooseX::LazyRequire;
 
     has bar => (
-        is           => 'ro',
-        lazy_require => 1,
+        is            => 'ro',
+        lazy_required => 1,
     );
 
     has baz => (
@@ -47,8 +47,8 @@ throws_ok(sub {
     use MooseX::LazyRequire;
 
     has foo => (
-        is           => 'rw',
-        lazy_require => 1,
+        is            => 'rw',
+        lazy_required => 1,
     );
 
     has baz => (
