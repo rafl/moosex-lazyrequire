@@ -12,10 +12,6 @@ has lazy_required => (
     default  => 0,
 );
 
-has lazy_require => (
-    is       => 'bare',
-);
-
 after _process_options => sub {
     my ($class, $name, $options) = @_;
 
