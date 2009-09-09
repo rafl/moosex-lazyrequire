@@ -62,10 +62,10 @@ sub init_meta {
     );
 }
 
+1;
+
 =begin Pod::Coverage
 
 init_meta
 
 =end Pod::Coverage
-
-1;
