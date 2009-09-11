@@ -1,3 +1,6 @@
+0.04 Sat, 12 Sep 2009 06:05:12 +0900
+  * Keep dzil from hiding the 1; at the end (Jesse Luehrs).
+
 0.03  Mon, 17 Aug 2009 11:12:11 +0200
   * Remove code that wasn't meant to be there in the last release.
 
