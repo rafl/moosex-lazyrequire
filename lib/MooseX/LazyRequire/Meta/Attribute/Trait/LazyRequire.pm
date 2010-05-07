@@ -1,4 +1,5 @@
 package MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire;
+# ABSTRACT: Attribute trait to make getters fail on unset attributes
 
 use Moose::Role;
 use Carp qw/cluck/;

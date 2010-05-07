@@ -2,7 +2,7 @@ package MooseX::LazyRequire;
 # ABSTRACT: Required attributes which fail only when trying to use them
 
 use Moose::Exporter;
-use aliased 'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire';
+use aliased 0.30 'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire';
 use namespace::autoclean;
 
 =head1 SYNOPSIS
