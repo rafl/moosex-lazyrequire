@@ -1,4 +1,7 @@
-0.04 Sat, 12 Sep 2009 06:05:12 +0900
+0.05  Fri, 07 May 2010 19:40:10 +0200
+  * Improve distribution metadata.
+
+0.04  Sat, 12 Sep 2009 06:05:12 +0900
   * Keep dzil from hiding the 1; at the end (Jesse Luehrs).
 
 0.03  Mon, 17 Aug 2009 11:12:11 +0200
