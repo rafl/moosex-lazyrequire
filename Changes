@@ -1,3 +1,6 @@
+0.06
+  * Updated to avoid warnings from Moose 1.09 (Dave Rolsky).
+
 0.05  Fri, 07 May 2010 19:40:10 +0200
   * Improve distribution metadata.
 
