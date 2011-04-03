@@ -40,7 +40,7 @@ parameter or through a writer method.
 
 =head1 CAVEATS
 
-Apparently Moose roles don't have an attribute metaclass, so this module can't
+Prior to Moose 1.9900, roles didn't have an attribute metaclass, so this module can't
 easily apply its magic to attributes defined in roles. If you want to use
 C<lazy_required> in role attributes, you'll have to apply the attribute trait
 yourself:
@@ -51,13 +51,23 @@ yourself:
         lazy_required => 1,
     );
 
+With Moose 1.9900, you can use this module in roles just the same way you can
+in classes.
+
 =cut
 
-Moose::Exporter->setup_import_methods(
+my %metaroles = (
     class_metaroles => {
         attribute => [LazyRequire],
     },
 );
+
+$metaroles{role_metaroles} = {
+    applied_attribute => [LazyRequire],
+    }
+    if $Moose::VERSION >= 1.9900;
+
+Moose::Exporter->setup_import_methods(%metaroles);
 
 1;
 

@@ -1,3 +1,6 @@
+  * Allow this module to be used with attributes in roles when using Moose
+    1.9900+ (Dave Rolsky).
+
 0.06  Mon, 19 Jul 2010 05:19:42 +0200
   * Updated to avoid warnings from Moose 1.09 (Dave Rolsky).
 
