@@ -77,4 +77,52 @@ throws_ok(sub {
     is($baz, 43);
 }
 
+SKIP:
+{
+    skip 'These tests require Moose 1.9900+', 3
+        unless $Moose::VERSION >= 1.9900;
+
+{
+    package Role;
+    use Moose::Role;
+    use MooseX::LazyRequire;
+
+    has foo => (
+        is            => 'rw',
+        lazy_required => 1,
+    );
+
+    has baz => (
+        is      => 'ro',
+        lazy    => 1,
+        builder => '_build_baz',
+    );
+
+    sub _build_baz { shift->foo + 1 }
+}
+
+{
+    package Quux;
+    use Moose;
+    with 'Role';
+}
+
+{
+    my $bar = Quux->new;
+
+    throws_ok(sub {
+        $bar->baz;
+    }, qr/must be provided/);
+
+    $bar->foo(42);
+
+    my $baz;
+    lives_ok(sub {
+        $baz = $bar->baz;
+    });
+
+    is($baz, 43);
+}
+}
+
 done_testing;
