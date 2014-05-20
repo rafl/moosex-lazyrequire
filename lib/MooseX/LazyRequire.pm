@@ -28,7 +28,7 @@ use namespace::autoclean;
 
     Foo->new(foo => 42); # succeeds, foo and bar will be 42
     Foo->new(bar => 42); # succeeds, bar will be 42
-    Foo->new;            # fails, neither foo nor bare were given
+    Foo->new;            # fails in _build_bar, neither foo nor bar were given
 
 =head1 DESCRIPTION
 
